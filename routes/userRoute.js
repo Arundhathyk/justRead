@@ -5,7 +5,8 @@ const router = express.Router();
 
 const config = require("../config/config");
 
-user_route.use(session({ secret: config.sessionSecret }));
+user_route.use(session({ secret: config.sessionSecret,resave: false,
+  saveUninitialized: true }));
 
 const auth = require("../middleware/auth");
 const auth1 = require("../middleware/adminAuth");
